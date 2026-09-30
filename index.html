@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardVerse | ซื้อ • ขาย • แลก • แข่งขัน TCG</title>
+  <meta name="description" content="CardVerse แพลตฟอร์มสำหรับคนรัก TCG ซื้อ ขาย แลกเปลี่ยนการ์ด และเข้าร่วมการแข่งขัน">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">◇</span>Card<span>Verse</span></a>
+    <nav>
+      <a href="#market">Marketplace</a>
+      <a href="#trade">แลกการ์ด</a>
+      <a href="#tournaments">การแข่งขัน</a>
+      <a href="#community">Community</a>
+    </nav>
+    <button class="cart-btn" id="openCart">🛒 <span>ตะกร้า</span> <b id="cartCount">0</b></button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">TCG MARKETPLACE • TRADE • TOURNAMENT</div>
+        <h1>การ์ดที่คุณตามหา<br><span>อยู่ใน CardVerse</span></h1>
+        <p>ซื้อขายการ์ดแท้ แลกเปลี่ยนกับผู้เล่น และสมัครแข่งขัน TCG ได้ในที่เดียว</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#market">เริ่มช้อปการ์ด</a>
+          <a class="btn ghost" href="#tournaments">ดูการแข่งขัน</a>
+        </div>
+        <div class="trust-row">
+          <div><strong>1,200+</strong><small>การ์ดใน Marketplace</small></div>
+          <div><strong>350+</strong><small>สมาชิก Community</small></div>
+          <div><strong>24</strong><small>รายการแข่งขัน</small></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="floating-card card-a"><small>POKÉMON</small><strong>CHARIZARD</strong><span>★ ★ ★</span></div>
+        <div class="floating-card card-b"><small>ONE PIECE</small><strong>LEADER</strong><span>♠ ★</span></div>
+        <div class="floating-card card-c"><small>YU-GI-OH!</small><strong>RARE</strong><span>◆ ◆ ◆</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="market">
+      <div class="section-head">
+        <div><div class="eyebrow">MARKETPLACE</div><h2>ค้นหาการ์ดที่ต้องการ</h2></div>
+        <div class="controls">
+          <input id="searchInput" type="search" placeholder="ค้นหาชื่อการ์ด...">
+          <select id="gameFilter">
+            <option value="all">ทุกเกม</option>
+            <option value="pokemon">Pokémon</option>
+            <option value="onepiece">One Piece</option>
+            <option value="yugioh">Yu-Gi-Oh!</option>
+            <option value="mtg">Magic: The Gathering</option>
+          </select>
+        </div>
+      </div>
+      <div class="chips">
+        <button class="chip active" data-game="all">ทั้งหมด</button>
+        <button class="chip" data-game="pokemon">Pokémon</button>
+        <button class="chip" data-game="onepiece">One Piece</button>
+        <button class="chip" data-game="yugioh">Yu-Gi-Oh!</button>
+        <button class="chip" data-game="mtg">MTG</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="split-section" id="trade">
+      <div class="panel trade-panel">
+        <div class="eyebrow">TRADE</div>
+        <h2>อยากแลกการ์ด?</h2>
+        <p>ลงการ์ดที่คุณมี พร้อมระบุการ์ดที่ต้องการ แล้วให้ Community ติดต่อกลับ</p>
+        <form id="tradeForm">
+          <input id="tradeHave" required placeholder="การ์ดที่คุณมี เช่น Charizard ex">
+          <input id="tradeWant" required placeholder="การ์ดที่ต้องการแลก">
+          <select id="tradeGame" required>
+            <option value="">เลือกเกม</option><option>Pokémon</option><option>One Piece</option><option>Yu-Gi-Oh!</option><option>Magic: The Gathering</option>
+          </select>
+          <button class="btn primary" type="submit">ลงประกาศแลกการ์ด</button>
+        </form>
+        <div id="tradeMessage" class="form-message"></div>
+      </div>
+      <div class="panel safety-panel">
+        <div class="icon-circle">✓</div>
+        <h3>แลกอย่างมั่นใจ</h3>
+        <ul>
+          <li>ระบุสภาพการ์ดก่อนตกลงแลก</li>
+          <li>ตรวจสอบโปรไฟล์และประวัติผู้ใช้</li>
+          <li>ใช้การจัดส่งแบบมี Tracking</li>
+          <li>ถ่ายรูปสินค้าไว้เป็นหลักฐาน</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section tournaments" id="tournaments">
+      <div class="section-head">
+        <div><div class="eyebrow">TOURNAMENTS</div><h2>สนามแข่งขันของ Community</h2></div>
+        <button class="btn ghost" id="showAllTournaments">ดูทั้งหมด</button>
+      </div>
+      <div class="tournament-grid" id="tournamentGrid"></div>
+    </section>
+
+    <section class="community" id="community">
+      <div>
+        <div class="eyebrow">COMMUNITY</div>
+        <h2>ซื้อการ์ด จัดเด็ค แล้วมาเจอกันที่สนามแข่ง</h2>
+        <p>ติดตามข่าวสาร Meta, Decklist, รีวิวการ์ด และกิจกรรมของ CardVerse</p>
+      </div>
+      <div class="community-stats">
+        <div><strong>350+</strong><span>สมาชิก</span></div>
+        <div><strong>80+</strong><span>Decklists</span></div>
+        <div><strong>24</strong><span>Tournaments</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand">Card<span>Verse</span></div>
+    <p>การ์ดแท้ • ซื้อขายมั่นใจ • แลกง่าย • แข่งขันสนุก</p>
+    <small>© 2026 CardVerse — Prototype Website</small>
+  </footer>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-head"><h2>ตะกร้าของคุณ</h2><button id="closeCart">✕</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-total"><span>รวม</span><strong id="cartTotal">฿0</strong></div>
+    <button class="btn primary full" id="checkoutBtn">ดำเนินการสั่งซื้อ</button>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
